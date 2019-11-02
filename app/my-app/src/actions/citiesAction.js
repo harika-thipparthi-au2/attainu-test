@@ -5,4 +5,15 @@ export function displayingCities(result) {
         citiesList: result.cities
        
     };
+};
+
+
+export function displayingAirports(result) {
+    console.log("action:DISPLAYING_AIRPORTS");
+    return {
+        type: 'DISPLAYING_AIRPORTS',
+        airportsList:result
+       
+    };
 }
+

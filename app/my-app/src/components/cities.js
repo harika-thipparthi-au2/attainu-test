@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { displayingCities } from "../actions/citiesAction";
-import { displayCities } from '../api';
+import { displayingCities,displayingAirports } from "../actions/citiesAction";
+import { displayCities,displayAirports} from '../api';
 
 
 
@@ -15,6 +15,7 @@ class Cities extends React.Component {
         return (
             <div className="container">
                 <div className="input-group">
+
                     <select className="custom-select" id="inputGroupSelect04">
                         <option selected>Select city....</option>
 
@@ -22,8 +23,10 @@ class Cities extends React.Component {
                             <option value="i">{item}</option>
 
 
+
                         )}
                     </select>
+                    <button className="btn btn-info" onClick={this.props.handleClick}>Show Airports</button>
 
                 </div>
             </div>
@@ -46,6 +49,10 @@ function mapActionToProps(dispatch) {
             displayCities()
                 .then(result => dispatch(displayingCities(result)))
                 ;
+        },
+        handleClick: function(){
+            displayAirports()
+                .then(result => dispatch(displayingAirports(result)))
         }
 
 

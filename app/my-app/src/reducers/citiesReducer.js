@@ -9,3 +9,6 @@ function citiesReducer(state = { citiesList: [] }, action) {
 }
 
 export default citiesReducer;
+
+
+
