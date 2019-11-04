@@ -1,5 +1,21 @@
 var express = require('express');
 var app = express();
+var mongoClient=require('mongodb').MongoClient;
+var url='mongodb://localhost:27017/airports&cities'
+mongoClient.connect(url, function (err, client) {
+    if (err) throw err;
+
+    var db = client.db('airports&cities');
+    db.collection('airports').find({}).toArray(function (err, result) {
+        if (err) {
+            throw err;
+        }
+       console.log(result);
+    });       
+
+
+});
+
 app.get('/cities', function (req, res) {
     var json = {
         "cities":
