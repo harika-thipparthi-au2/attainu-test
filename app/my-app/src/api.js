@@ -4,8 +4,8 @@ export function displayCities(){
          .then(data => data.json());
 }
 
-export function displayAirports(){
-  let url="http://localhost:8000/airports";
+export function displayAirports(cityName){
+  let url="http://localhost:8000/airports?city="+cityName;
   return fetch(url)
   .then(data => data.json());
 }

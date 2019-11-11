@@ -7,5 +7,4 @@ function airportsReducer(state = { airportsList: [] }, action) {
             return state;
     }
 }
-
 export default airportsReducer;

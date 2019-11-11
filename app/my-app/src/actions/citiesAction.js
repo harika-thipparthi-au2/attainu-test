@@ -2,7 +2,7 @@ export function displayingCities(result) {
     console.log("action:DISPLAYING_CITIES");
     return {
         type: 'DISPLAYING_CITIES',
-        citiesList: result.cities
+        citiesList: result
        
     };
 };

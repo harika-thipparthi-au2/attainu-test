@@ -16,17 +16,17 @@ class Cities extends React.Component {
             <div className="container">
                 <div className="input-group">
 
-                    <select className="custom-select" id="inputGroupSelect04">
+                    <select className="custom-select" id="citySelector">
                         <option selected>Select city....</option>
 
-                        {this.props.citiesList.map((item, i) =>
-                            <option value="i">{item}</option>
+                        {this.props.citiesList.map((item) =>
+                            <option value={item.city_name}>{item.city_name}</option>
 
 
 
                         )}
                     </select>
-                    <button className="btn btn-info" onClick={this.props.handleClick}>Show Airports</button>
+                    <button className="btn btn-info ml-2" onClick={this.props.handleClick}>Show Airports</button>
 
                 </div>
             </div>
@@ -44,6 +44,7 @@ function mapStateToProps(state) {
 }
 
 function mapActionToProps(dispatch) {
+    let name="";
     return {
         getCitiesList: function () {
             displayCities()
@@ -51,7 +52,8 @@ function mapActionToProps(dispatch) {
                 ;
         },
         handleClick: function(){
-            displayAirports()
+            name=document.getElementById("citySelector").value;
+            displayAirports(name)
                 .then(result => dispatch(displayingAirports(result)))
         }
 

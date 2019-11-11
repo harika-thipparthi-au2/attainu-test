@@ -4,16 +4,19 @@ import { connect } from "react-redux";
 class Airports extends React.Component {
     render() {
         return <div className="container">
-            <div className="card" style={{ 'backgroundColor': '#E0FFFF', }}>
-                <ul className="card-header" style={{ 'color': 'navy' }}>
-                {/* {this.props.airportsList.length > 0 && this.props.reposList[0].owner.login} */}
+            {this.props.airportsList.length!=0 && 
+            <div className="card mt-4" style={{ 'backgroundColor': 'white'}}>
+                <ul className="card-header" style={{ 'color': 'white' }}>
                     {this.props.airportsList.map((item, i) =>
                         <li key={i.toString()} className="card-body rounded mx-auto d-block text-white bg-secondary my-2 p-3">
-                            {item.airport_name}
+                           Airport Name : {item.airport_name}<br></br>
+                           IATA Code : {item.IATA_code}<br></br>
+                          ICAO_Code : {item.ICAO_code}
                         </li>
                     )}
-                </ul>
-            </div>
+                </ul> 
+            </div> 
+            }
         </div>
     }
 }
